@@ -1,0 +1,28 @@
+.middle-info{
+    padding: 20px 0px 20px 20px;
+    margin-bottom: 0;
+}
+
+.input-style{
+   padding: 10px;
+   margin-top: 10px;
+}
+
+.body-style{
+    padding: 50px;
+    max-width: 50%;
+   width: 50%;
+}
+
+.temp{
+    position: relative;
+    bottom:  30px;
+    left: 6px;
+    display: inline-block;
+}
+
+.text-stye{
+    font-weight: 500;
+    color: gray;
+}
+
