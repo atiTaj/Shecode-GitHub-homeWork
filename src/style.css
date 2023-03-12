@@ -26,3 +26,6 @@
     color: gray;
 }
 
+.status-weather{
+text-transform: capitalize;
+}
