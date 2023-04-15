@@ -29,3 +29,19 @@
 .status-weather{
 text-transform: capitalize;
 }
+
+.temp .active{
+    color: black;
+    cursor: default;
+}
+
+.temp .active:hover{
+    text-decoration: none;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+

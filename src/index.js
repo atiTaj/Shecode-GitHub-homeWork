@@ -1,13 +1,18 @@
-function changeTemp(event){
+function changeCelsiusTemp(event){
   event.preventDefault();
+    celsius.classList.add("active");
+  farenheit.classList.remove("active");
   let temp = document.querySelector("#temp");
-  temp.innerHTML="19";
+  temp.innerHTML= celsiusTemp;
 }
 
 function changeFarenheitTemp(event){
   event.preventDefault();
+  celsius.classList.remove("active");
+  farenheit.classList.add("active");
   let temp = document.querySelector("#temp");
-  temp.innerHTML="66";
+  let changedTemp = (celsiusTemp * 9) / 5 + 32;
+  temp.innerHTML= Math.round(changedTemp);
 }
 
 function getCurrent(event){
@@ -27,13 +32,19 @@ function search(event){
   axios.get(`${apiUrl}&appid=${apiKey}&q=${city.value}`).then(logResponse);
 }
 
+function formatDate(timestamp){
+let date = new Date(timestamp);
+let hours = date.getHours();
+let minutes = date.getMinutes();
+let day = date.getDay();
+return`${days[day]} ${hours}:${minutes}`;
+}
 
  function logResponse(response) {
  debugger;
-  let now =new Date();
   let cityInfo = document.querySelector("#search");
   console.log(response.data)
-  cityInfo.innerHTML = `${response.data.name} <br/> ${days[now.getDay()]} ${now.getHours()}:${now.getMinutes()} <br/> ${response.data.weather[0].description} <br/>`;
+  cityInfo.innerHTML = `${response.data.name} <br/> ${formatDate(response.data.dt * 1000)} <br/> ${response.data.weather[0].description} <br/>`;
 
   let temperture = document.querySelector("#temp");
   temperture.innerHTML= Math.round(response.data.main.temp);
@@ -41,7 +52,12 @@ function search(event){
 
   let weatherInfo =  document.querySelector("#weather-info");
   weatherInfo.innerHTML = `Humidity: ${response.data.main.humidity}% <br/> Wind: ${Math.round(response.data.wind.speed)} km/h`;
-
+ celsiusTemp = Math.round(response.data.main.temp);
+ 
+  let icon =  document.querySelector("#icon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`) ;
+  icon.setAttribute("alt" , response.data.weather[0].description);
+ 
 }
 
 let weather = {
@@ -79,9 +95,9 @@ let days = [
 
 let button = document.querySelector("button");
 button.addEventListener("click", search);
-
+let celsiusTemp = null;
 let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click",changeTemp )
+celsius.addEventListener("click",changeCelsiusTemp )
 
 let farenheit = document.querySelector("#farenheit");
 farenheit.addEventListener("click",changeFarenheitTemp )
