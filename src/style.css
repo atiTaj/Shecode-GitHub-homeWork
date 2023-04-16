@@ -1,3 +1,9 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 .middle-info{
     padding: 20px 0px 20px 20px;
     margin-bottom: 0;
@@ -9,9 +15,10 @@
 }
 
 .body-style{
+    padding: 0 auto;
     padding: 50px;
-    max-width: 50%;
-   width: 50%;
+    max-width: 100%;
+    width: 50%;
 }
 
 .temp{
@@ -24,6 +31,8 @@
 .text-stye{
     font-weight: 500;
     color: gray;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .status-weather{
@@ -44,4 +53,65 @@ a{
     text-decoration: none;
 }
 
+.weaher-forecast{
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+}
 
+
+.forcast-date{
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+.forcast-temp{
+    font-size: 13px;
+}
+.temp-min{
+     margin-left: 18px;
+     opacity: 0.5;
+}
+
+#icon{
+   height: 120px;
+   margin-top: -30px;
+}
+
+#weather-info{
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.col-1{
+    margin-right: 20px ;
+    margin-left: auto;
+}
+
+.col-9{
+    margin-left: auto;
+}
+
+.linked-cities{
+    margin-left: 40px;
+}
+
+#search{
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+
+.temp{
+    margin-top: 13px;
+    margin-left: 20px;
+}
+
+.weather-des{
+    margin-right: 20px;
+    margin-left: 30px ;
+}
+
+#forcast-icon{
+     height: 90px;
+}
